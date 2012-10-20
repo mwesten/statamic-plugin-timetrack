@@ -8,7 +8,9 @@ This little plugin will give you the time in Seconds it took the PHP-Code from t
 I didn't find a better solution yet so I'm sorry but you have to hack the index.php
   
 So in your `statmic-root/index.php` add this
-    $_SESSION['timetrack']['start_time'] = microtime(true);
+
+	$_SESSION['timetrack']['start_time'] = microtime(true);
+	
 at the very top
 
 Then you have to copy the plugin into your plugin folder
@@ -20,4 +22,4 @@ Everywhere you call `{{ timetrack }}` it will give you:
 
 ## ToDo's
 - get rid of this index.php hack
-- give opporunity to refactor the number
+- give opportunity to refactor the number
