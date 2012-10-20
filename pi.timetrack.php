@@ -8,7 +8,26 @@ class Plugin_timetrack extends Plugin {
     'author_url' => 'http://maxx.st'
   );
 
+  function __construct() {
+       parent::__construct();
+       //$_SESSION['timetrack']['plugin_start_time'] = microtime(true);
+  }
+
   public function index(){
-    return '<span id="trackedTime">'.(microtime(true) - $_SESSION['timetrack']['start_time']).'</span>';
+    $start_time   = $_SESSION['timetrack']['start_time'];
+    $end_time     = microtime(true);
+    $timeType     = $this->fetch_param('timeIn', 's');
+    $round        = $this->fetch_param('roundTo', 4);
+
+    $trackedTime = round(($end_time - $start_time), $round);
+
+    if($timeType === 'ms') { //millisecons
+      $trackedTime *= 1000;
+      $type = 'ms';
+    } else { //seconds
+      $type = 's';
+    }
+
+    return '<span id="trackedTime">'.$trackedTime.$type.'</span>';
   }
 }

@@ -17,9 +17,29 @@ Then you have to copy the plugin into your plugin folder
 
 ## Using the plugin
 Everywhere you call `{{ timetrack }}` it will give you:
-    <span id="trackedTime">0.123456789</span>
+
+    <span id="trackedTime">0.1234s</span>
+    
+### Available options
+####timeIn s(default) or ms
+
+`{{ timetrack timeIn="ms" }}`gives you the time in Milliseconds
+
+		<span id="trackedTime">123.4ms</span>
+
+#### roundTo = [number]  default = 4
+gives the digits that matter so
+
+
+- `{{ timetrack timeIn="ms" roundTo="5" }}`gives you the time in Milliseconds
+
+		<span id="trackedTime">123.45ms</span>
+		
+
+- `{{ timetrack timeIn="s" roundTo="5" }}`gives you the time in Milliseconds
+
+		<span id="trackedTime">0.12345s</span>
 
 
 ## ToDo's
 - get rid of this index.php hack
-- give opportunity to refactor the number
