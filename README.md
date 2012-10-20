@@ -28,17 +28,17 @@ Everywhere you call `{{ timetrack }}` it will give you:
 		<span id="trackedTime">123.4ms</span>
 
 #### roundTo = [number]  default = 4
-gives the digits that matter so
+gives the digits that matter so:
 
 
-- `{{ timetrack timeIn="ms" roundTo="5" }}`gives you the time in Milliseconds
+- `{{ timetrack timeIn="ms" roundTo="5" }}`gives you the rounded time in Milliseconds
 
 		<span id="trackedTime">123.45ms</span>
 		
 
-- `{{ timetrack timeIn="s" roundTo="5" }}`gives you the time in Milliseconds
+- `{{ timetrack timeIn="s" roundTo="6" }}`gives you the rounded time in Seconds
 
-		<span id="trackedTime">0.12345s</span>
+		<span id="trackedTime">0.123456s</span>
 
 
 ## ToDo's
