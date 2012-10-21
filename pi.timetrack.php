@@ -3,7 +3,7 @@ class Plugin_timetrack extends Plugin {
 
   var $meta = array(
     'name'       => 'Timetrack Time Tracker',
-    'version'    => '0.1',
+    'version'    => '0.2',
     'author'     => 'Max Stauss',
     'author_url' => 'http://maxx.st'
   );
@@ -18,15 +18,21 @@ class Plugin_timetrack extends Plugin {
     $end_time     = microtime(true);
     $timeType     = $this->fetch_param('timeIn', 's');
     $round        = $this->fetch_param('roundTo', 4);
-
+    $showType     = $this->fetch_param('showType', false, false, true); //bool
+    
     $trackedTime = round(($end_time - $start_time), $round);
 
-    if($timeType === 'ms') { //millisecons
-      $trackedTime *= 1000;
-      $type = 'ms';
-    } else { //seconds
-      $type = 's';
+    switch ($timeType) {
+      case 'ms':
+        $trackedTime *= 1000;
+        break;
+      
+      default:
+        $showType = 's';
+        break;
     }
+
+    $type = ($showType) ? $timeType : '';
 
     return '<span id="trackedTime">'.$trackedTime.$type.'</span>';
   }
