@@ -22,7 +22,7 @@ Then you have to copy the plugin into your plugin folder
 ## Using the plugin
 Everywhere you call `{{ timetrack }}` it will give you:
 
-    <span id="trackedTime">0.1234s</span>
+    <span id="trackedTime">0.1234</span>
     
 ### Available options
 ####timeIn= [ s || ms ]
