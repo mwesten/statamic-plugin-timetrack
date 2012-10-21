@@ -19,6 +19,7 @@ class Plugin_timetrack extends Plugin {
     $timeType     = $this->fetch_param('timeIn', 's');
     $round        = $this->fetch_param('roundTo', 4);
     $showType     = $this->fetch_param('showType', false, false, true); //bool
+    $class        = $this->fetch_param('class', '');
     
     $trackedTime = round(($end_time - $start_time), $round);
 
@@ -34,6 +35,6 @@ class Plugin_timetrack extends Plugin {
 
     $type = ($showType) ? $timeType : '';
 
-    return '<span id="trackedTime">'.$trackedTime.$type.'</span>';
+    return '<span id="trackedTime" class="'.$class.'">'.$trackedTime.$type.'</span>';
   }
 }

@@ -55,6 +55,11 @@ appends the selected timeType to the number
 
 		<span id="trackedTime">120ms</span>
 
+#### class= [string]
+you can give classes like
+`{{ timetrack class="classes feature"}}`gives you 
+
+		<span id="trackedTime" class="classes feature" >0.1234</span>
 
 	
 ## ToDo's
